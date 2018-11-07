@@ -7,7 +7,7 @@ class Answer {
 			if (('0' <= t && t <= '9') || t == '.') {
 				sb.append(t);
 			} 
-            else {
+            		else {
 				if (i - 1 >= 0) {
 					char s = expression.charAt(i - 1);
 					if (('0' <= s && s <= '9') || s == '.') {
@@ -15,11 +15,11 @@ class Answer {
 						ans.append(t);
 						sb = new StringBuilder();
 					} 
-                	else {
+                			else {
 						sb.append(t);
 					}
 				} 
-                else {
+                		else {
 					sb.append(t);
 				}
 			}
