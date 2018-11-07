@@ -1,0 +1,26 @@
+import java.util.List;
+
+class Answer {
+	static int MinSliceWeight(List<List<Integer>> Matrix) {
+		int minWeight = Integer.MAX_VALUE;
+		for (int i = 1; i < Matrix.size(); i++) {
+			for (int j = 0; j < Matrix.get(i).size(); j++) {
+				int minVal = Integer.MAX_VALUE;
+				minVal = Math.min(minVal, Matrix.get(i - 1).get(j));
+				if (j - 1 >= 0) {
+					minVal = Math.min(minVal, Matrix.get(i - 1).get(j - 1));
+				}
+				if (j + 1 < Matrix.get(i).size()) {
+					minVal = Math.min(minVal, Matrix.get(i - 1).get(j + 1));
+				}
+				if (minVal == Integer.MAX_VALUE)
+					minVal = 0;
+				Matrix.get(i).set(j, Matrix.get(i).get(j) + minVal);
+			}
+		}
+		for (int i : Matrix.get(Matrix.size() - 1)) {
+			minWeight = Math.min(minWeight, i);
+		}
+		return minWeight;
+	}
+}
