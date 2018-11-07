@@ -15,7 +15,7 @@ class Answer {
 						ans.append(t);
 						sb = new StringBuilder();
 					} 
-                    else {
+                	else {
 						sb.append(t);
 					}
 				} 
